@@ -10,8 +10,6 @@ const chatBox = document.getElementById("chatBox")
 //utilizamos sweet alert 2 para generar un mensaje de bienvenida
 
 //swal es un objeto global de la libreria y para configurar cada alerta usabamos el metodo "fire"
-
-
 Swal.fire({
     title:"Identificate",
     input:"text",
@@ -30,12 +28,12 @@ chatBox.addEventListener("keyup", (event) => {
         if(chatBox.value.trim().length > 0){
             //Trim nos permite sacar los espacios en blanco del principio y el final de un string. Si el mensaje tiene mas de 0 caracteres, lo enviamos al servidor.
             socket.emit("mensaje", {usuario: usuario, mensaje: chatBox.value})
+            chatBox.value = ""
         }
     }
 })
 
 //listener de mensajes
-
 socket.on("mensajesLogs", (data) => {
     const messagesLogs = document.getElementById("messagesLogs")
 
@@ -44,8 +42,9 @@ socket.on("mensajesLogs", (data) => {
     data.forEach( mensaje => {
         mensajes += `
             <div class="message">
-                <span class="user"> ${mensaje.usuario} </span>
-                <div class="text"> ${mensaje.mensaje}</div>
+                <span class = "user"> ${mensaje.usuario} </span>
+                <div class = "text"> ${mensaje.mensaje}</div>
+            </div>
         `
     })
     messagesLogs.innerHTML = mensajes

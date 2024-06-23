@@ -39,13 +39,14 @@ let mensajes = []
 
 io.on("connection", (socket)=>{
     console.log("Un cliente se conecto")
+    
     socket.on("mensaje", (data) => {
         mensajes.push(data)
         //aca estoy guardando la informacion que me nevia el cliente (usuario + mensaje) y lo voy a almacenar en un array
 
 
         //emitimos mensaje al cliente con todo el array de datos:
-        socket.emit("mensajeLogs", mensajes)
-        
+        socket.emit("mensajesLogs", mensajes)
+        console.log(mensajes)
     })
 })
