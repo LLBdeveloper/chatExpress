@@ -30,7 +30,6 @@ const httpServer = app.listen(PUERTO, ()=>{
 })
 
 //websockets
-
 const io = new Server(httpServer)
 
 
@@ -46,7 +45,7 @@ io.on("connection", (socket)=>{
 
 
         //emitimos mensaje al cliente con todo el array de datos:
-        socket.emit("mensajesLogs", mensajes)
+        io.emit("mensajesLogs", mensajes)
         console.log(mensajes)
     })
 })
