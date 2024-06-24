@@ -37,7 +37,7 @@ const identificarUsuario = () => {
         if (result.value === "gboy" || result.value === "lautarin") {
             usuario = result.value;
             // Remover la clase blurred del contenedor principal
-            // document.querySelector('.borroso').classList.remove('blurred'); 
+            document.querySelector('.borroso').classList.remove('blurred'); 
 
 
         } else {
