@@ -74,6 +74,9 @@ h1 {
 
 
 
+.blurred {
+    filter: blur(5px);
+}
 
 
 
