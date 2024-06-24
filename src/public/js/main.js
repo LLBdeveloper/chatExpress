@@ -70,6 +70,22 @@ chatBox.addEventListener("keyup", (event) => {
     }
 })
 
+// Listener de mensajes previos
+socket.on("mensajesPrevios", (data) => {
+    const messagesLogs = document.getElementById("messagesLogs");
+    let mensajes = "";
+
+    data.forEach(mensaje => {
+        mensajes += `
+            <div class="message">
+                <span class="user">${mensaje.usuario}</span>
+                <div class="text">${mensaje.mensaje}</div>
+            </div>
+        `;
+    });
+    messagesLogs.innerHTML = mensajes;
+});
+
 //listener de mensajes
 socket.on("mensajesLogs", (data) => {
     const messagesLogs = document.getElementById("messagesLogs")
