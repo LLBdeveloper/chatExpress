@@ -39,6 +39,9 @@ let mensajes = []
 io.on("connection", (socket)=>{
     console.log("Un cliente se conecto")
     
+    // Enviar mensajes almacenados al cliente recién conectado
+    socket.emit("mensajesPrevios", mensajes);
+
     socket.on("mensaje", (data) => {
         mensajes.push(data)
         //aca estoy guardando la informacion que me nevia el cliente (usuario + mensaje) y lo voy a almacenar en un array
