@@ -1,5 +1,3 @@
-console.log("holu esto funciona")
-
 const socket = io()
 
 //generamos una instancia de socket.io del lado del cliente
